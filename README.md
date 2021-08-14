@@ -1,3 +1,5 @@
+# vite-react
+
 ### 简介
 基于Vite和Webpack搭建的React后台管理系统<br />
 将路由和菜单配置合并，只需配置一处，即可自动生成目录和路由映射😝
@@ -24,9 +26,6 @@
 
 ### 目录结构
 ```md
-├── index.html
-├── package.json
-├── README.md
 ├── src
 │   ├── App.css
 │   ├── App.jsx
@@ -55,6 +54,9 @@
 │       ├── index.js
 │       ├── layout.js
 │       └── todolist.js
+├── README.md
+├── index.html
+├── package.json
 ├── vite.config.js
 ├── webpack.config.js
 └── yarn.lock
