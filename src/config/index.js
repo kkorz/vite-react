@@ -30,6 +30,12 @@ export default [
         icon: "AlertOutlined",
         component: loadable(() => import("../pages/HOC/WithLoading")),
       },
+      {
+        path: "/hoc/withParams",
+        text: "WithParams",
+        icon: "AlertOutlined",
+        component: loadable(() => import("../pages/HOC/WithParams")),
+      },
     ],
   },
   {
