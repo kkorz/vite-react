@@ -30,7 +30,7 @@ const Index = () => {
         margin: 16,
         padding: 16,
         background: "#fff",
-        overflow: "scroll",
+        overflow: "auto",
       }}
     >
       <Switch>
