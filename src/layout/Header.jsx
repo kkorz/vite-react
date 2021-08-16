@@ -53,7 +53,7 @@ const Index = (props) => {
           <Breadcrumb.Item key={index}>{item.text}</Breadcrumb.Item>
         ))}
       </Breadcrumb>
-      <div style={{ flex: "1", textAlign: "center" }}>宠辱不惊，坦然自若</div>
+      <div style={{ flex: "1", textAlign: "center" }}>宠辱不惊，泰然自若</div>
     </Header>
   );
 };
