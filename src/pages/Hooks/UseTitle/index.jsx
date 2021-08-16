@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Button } from "antd";
-import { useTitle } from "./useTitle";
+import { useTitle } from "@/core/hooks/useTitle";
 
 const Index = () => {
   const inputRef = useRef();

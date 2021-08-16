@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useSet } from "./useSet";
+import { useSet } from "@/core/hooks/useSet";
 
 const Index = () => {
   const inputRef = useRef();

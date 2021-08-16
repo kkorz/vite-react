@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import WithParams from "./WithParams";
+import WithParams from "@/core/hoc/WithParams";
 import { Input, Button } from "antd";
 
 const Index = (props) => {

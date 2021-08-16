@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useToggle } from "./useToggle";
+import { useToggle } from "@/core/hooks/useToggle";
 
 const Index = () => {
   const [toggled, { setToggle, setOnToggle, setUnToggle }] = useToggle();

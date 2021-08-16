@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Index extends Component {
+class DefaultErrorComponent extends Component {
   state = {
     hasError: false,
   };
@@ -22,4 +22,4 @@ class Index extends Component {
   }
 }
 
-export default Index;
+export default DefaultErrorComponent;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "@/core/hoc/ErrorBoundary";
 
 const Index = () => {
   const [errObj, setErrObj] = useState({ name: "kang" });

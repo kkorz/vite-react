@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import useUrlLoader from "./useUrlLoader";
+import useUrlLoader from "@/core/hooks/useUrlLoader";
 
 const Index = () => {
   const [count, setCount] = useState(0);
   const [loading, data] = useUrlLoader(
     "https://dog.ceo/api/breeds/image/random",
-    [count]
+    [count],
   );
 
   return (

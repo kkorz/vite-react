@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDebounceFn } from "./useDebounceFn";
+import { useDebounceFn } from "@/core/hooks/useDebounceFn";
 
 const Index = () => {
   const [count, setCount] = useState(0);

@@ -1,5 +1,5 @@
 import React from "react";
-import WithLoading from "./WithLoading";
+import WithLoading from "@/core/hoc/WithLoading";
 
 const DispalyComponent = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useThrottleFn } from "./useThrottleFn";
+import { useThrottleFn } from "@/core/hooks/useThrottleFn";
 
 const Index = () => {
   const [count, setCount] = useState(0);
