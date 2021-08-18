@@ -1,0 +1,39 @@
+.todolist {
+  width: 300px;
+  text-align: center;
+  padding: 10px;
+  background: rgba(208, 230, 245);
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  &-title {
+    text-align: left;
+  }
+
+  &-top {
+    display: flex;
+  }
+
+  &-main {
+    &-title {
+      text-align: left;
+
+      &:nth-child(1) {
+        margin-top: 10px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      color: #40a9ff;
+      background-color: #fff;
+      height: 30px;
+      line-height: 20px;
+      text-align: left;
+      padding: 5px;
+      box-sizing: border-box;
+      margin-bottom: 8px;
+    }
+  }
+}
