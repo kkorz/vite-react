@@ -1,5 +1,6 @@
 import React from "react";
-import "./index.less";
+import classNames from "classnames";
+import styles from "./index.module.less";
 
 const Index = () => {
   const Items = [
@@ -55,28 +56,36 @@ const Index = () => {
 
   return (
     <div style={{ display: "flex" }}>
-      <section className="container-3">
+      <section className={styles["container-3"]}>
         <p>三列瀑布流展示</p>
-        <div className="container">
+        <div className={styles["container"]}>
           {Items.map((item, index) => (
-            <div className="item" style={{ height: item.height }} key={index}>
+            <div
+              className={styles["item"]}
+              style={{ height: item.height }}
+              key={index}
+            >
               {item.title}
             </div>
           ))}
         </div>
       </section>
 
-      <section className="container-4">
+      <section className={styles["container-4"]}>
         <p>四列瀑布流展示</p>
-        <div className="container">
+        <div className={styles["container"]}>
           {Items.map((item, index) => (
-            <div className="item" style={{ height: item.height }} key={index}>
+            <div
+              className={styles["item"]}
+              style={{ height: item.height }}
+              key={index}
+            >
               {item.title}
             </div>
           ))}
-          <span className="item break" />
-          <span className="item break" />
-          <span className="item break" />
+          <span className={classNames(styles["item"], styles["break"])} />
+          <span className={classNames(styles["item"], styles["break"])} />
+          <span className={classNames(styles["item"], styles["break"])} />
         </div>
       </section>
     </div>

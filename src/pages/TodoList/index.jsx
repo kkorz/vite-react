@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Input, Button, Space, Divider } from "antd";
 import { CheckCircleOutlined, DeleteOutlined } from "@ant-design/icons";
-import "./index.less";
+import styles from "./index.module.less";
 
 const TodoList = () => {
   const [inputVal, setInputVal] = useState("");
@@ -40,10 +40,10 @@ const TodoList = () => {
   }, [list]);
 
   return (
-    <div className="todolist">
-      <h2 className="todolist-title">Todo List</h2>
+    <div className={styles.todolist}>
+      <h2 className={styles["todolist-title"]}>Todo List</h2>
 
-      <section className="todolist-top">
+      <section className={styles["todolist-top"]}>
         <Space>
           <Input
             placeholder="Add a task here..."
@@ -59,10 +59,10 @@ const TodoList = () => {
         </Space>
       </section>
 
-      <section className="todolist-main">
-        <p className="todolist-main-title">Undo: {undoList.length}</p>
+      <section className={styles["todolist-main"]}>
+        <p className={styles["todolist-main-title"]}>Undo: {undoList.length}</p>
         {undoList.map((item) => (
-          <div className="todolist-main-item" key={item.id}>
+          <div className={styles["todolist-main-item"]} key={item.id}>
             <p>{item.name}</p>
             <span style={{ cursor: "pointer" }}>
               <Space>
@@ -79,9 +79,9 @@ const TodoList = () => {
 
       <Divider />
 
-      <p className="todolist-main-title">Done: {doneList.length}</p>
+      <p className={styles["todolist-main-title"]}>Done: {doneList.length}</p>
       {doneList.map((item) => (
-        <div className="todolist-main-item" key={item.id}>
+        <div className={styles["todolist-main-item"]} key={item.id}>
           <p> {item.name}</p>
           <DeleteOutlined
             onClick={() => onDeleleTask(item.id)}

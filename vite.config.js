@@ -9,6 +9,12 @@ export default defineConfig({
     open: true,
   },
   css: {
+    // css module配置
+    modules: {
+      localsConvention: "camelCase",
+      generateScopedName: "[name]__[local]___[hash:base64:5]",
+      hashPrefix: "prefix",
+    },
     // PostCSS 配置（格式同 postcss.config.js）
     // postcss-load-config 的插件配置
     postcss: {
@@ -17,8 +23,9 @@ export default defineConfig({
     //指定传递给 CSS 预处理器的选项
     preprocessorOptions: {
       less: {
-        // antd主题色
+        // 重写 less 变量, 定制antd样式
         modifyVars: themeVariables,
+        // 支持内联 JavaScript
         javascriptEnabled: true,
       },
     },

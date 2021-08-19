@@ -3,7 +3,7 @@ import { observer, inject } from "mobx-react";
 import { Layout, Breadcrumb } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import config from "../config";
-import "./index.less";
+import styles from "./index.module.less";
 
 const { Header } = Layout;
 
@@ -44,9 +44,9 @@ const Index = (props) => {
       {React.createElement(
         collapseStatus ? MenuUnfoldOutlined : MenuFoldOutlined,
         {
-          className: "trigger",
+          className: styles.trigger,
           onClick: toggle,
-        }
+        },
       )}
       <Breadcrumb separator=">">
         {genBreadcrumb(config, pathname).map((item, index) => (

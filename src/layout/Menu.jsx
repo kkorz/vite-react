@@ -4,7 +4,7 @@ import { observer, inject } from "mobx-react";
 import { Menu, Layout } from "antd";
 import * as Icon from "@ant-design/icons";
 import config from "../config";
-import "./index.less";
+import styles from "./index.module.less";
 
 const { Sider } = Layout;
 
@@ -70,7 +70,7 @@ const Index = (props) => {
         height: "100vh",
       }}
     >
-      <div className="logo">Vite React</div>
+      <div className={styles.logo}>Vite React</div>
       <Menu
         onClick={handleClick}
         defaultSelectedKeys={selectedKeys}

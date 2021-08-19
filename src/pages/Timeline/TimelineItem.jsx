@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import styles from "./index.module.less";
 
 const TimelineItem = (props) => {
   const {
@@ -11,12 +11,20 @@ const TimelineItem = (props) => {
   } = props;
 
   return (
-    <div className={"flex-base"}>
-      <div className={"label"}>{position === "left" ? label : children}</div>
-      <div className={"dot-wrapper"}>
-        {dot ? dot : <span className={"dots"} style={{ borderColor: color }} />}
+    <div className={styles["flex-base"]}>
+      <div className={styles["label"]}>
+        {position === "left" ? label : children}
       </div>
-      <div className={"content"}>{position === "left" ? children : label}</div>
+      <div className={styles["dot-wrapper"]}>
+        {dot ? (
+          dot
+        ) : (
+          <span className={styles["dots"]} style={{ borderColor: color }} />
+        )}
+      </div>
+      <div className={styles["content"]}>
+        {position === "left" ? children : label}
+      </div>
     </div>
   );
 };

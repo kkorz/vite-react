@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+/* antd 样式 */
+.ant-layout-header {
+  background-color: #fff !important;
+  padding: 0 !important;
+}

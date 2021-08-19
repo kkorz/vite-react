@@ -4,7 +4,6 @@ import { Layout } from "antd";
 import Menu from "./Menu";
 import Header from "./Header";
 import Content from "./Content";
-import "./index.less";
 
 export default () => {
   return (
