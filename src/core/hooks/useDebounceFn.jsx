@@ -12,12 +12,13 @@ export const useDebounceFn = (fn, delay) => {
       clearTimeout(current.timer);
     }
     current.timer = setTimeout(() => {
-      fn();
+      current.fn();
     }, delay);
   };
 
   const cancel = () => {
     clearTimeout(current.timer);
+    current.timer = null;
   };
 
   return { run, cancel };
