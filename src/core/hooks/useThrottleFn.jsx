@@ -10,9 +10,9 @@ export const useThrottleFn = (fn, delay) => {
   const run = () => {
     if (!current.timer) {
       current.timer = setTimeout(() => {
+        current.fn();
         current.timer = null;
       }, delay);
-      current.fn();
     }
   };
 

@@ -10,6 +10,7 @@
     "@babel/runtime": "^7.14.8",
     "@babel/runtime-corejs3": "^7.14.8",
     "@loadable/component": "^5.15.0",
+    "ahooks": "^2.10.9",
     "antd": "^4.16.6",
     "axios": "^0.21.1",
     "mobx": "^6.3.2",
