@@ -68,12 +68,6 @@ export default [
         text: "useToggle",
         component: loadable(() => import("../pages/Hooks/UseToggle")),
       },
-      {
-        path: "/hooks/useUrlLoader",
-        text: "useUrlLoader",
-        icon: "AppstoreAddOutlined",
-        component: loadable(() => import("../pages/Hooks/UseUrlLoader")),
-      },
     ],
   },
   {
