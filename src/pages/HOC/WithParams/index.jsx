@@ -1,15 +1,14 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import WithParams from "@/core/hoc/WithParams";
 import { Input, Button, Divider, Space } from "antd";
 
 const Index = (props) => {
+  const [inputVal, setInputVal] = useState("");
   const { params, history } = props;
-  const inputRef = useRef(null);
 
   const changUrl = () => {
-    const val = inputRef.current.state.value;
-    if (val) {
-      history.push(`/hoc/withParams?name=${val}`);
+    if (inputVal) {
+      history.push(`/hoc/withParams?name=${inputVal}`);
       return;
     }
     history.push(`/hoc/withParams`);
@@ -27,9 +26,13 @@ const Index = (props) => {
       </h3>
       <Space>
         <Input
-          ref={inputRef}
+          value={inputVal}
+          onChange={(e) => {
+            setInputVal(e.target.value);
+          }}
           style={{ width: 200 }}
           placeholder="请输入参数name的值"
+          allowClear
         />
         <Button onClick={changUrl} type="primary">
           点我改变Url

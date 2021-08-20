@@ -1,19 +1,27 @@
-import React, { useRef, useState } from "react";
-import { Button } from "antd";
+import React, { useState } from "react";
+import { Input, Space } from "antd";
 import { useTitle } from "@/core/hooks/useTitle";
 
 const Index = () => {
-  const inputRef = useRef();
-  const [title, setTitle] = useState("初始title");
+  const [title, setTitle] = useState("");
   useTitle(title);
 
   return (
-    <div>
-      <input type="text" ref={inputRef} />
-      <Button onClick={() => setTitle(inputRef.current.value)} type={"primary"}>
-        点我设置title
-      </Button>
-    </div>
+    <>
+      <h2>
+        当前页面的title是：<span style={{ color: "green" }}>{title}</span>
+      </h2>
+      <Space>
+        <span>请输入页面标题: </span>
+        <Input
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+          style={{ width: 200 }}
+          placeholder="请输入"
+        />
+      </Space>
+    </>
   );
 };
 

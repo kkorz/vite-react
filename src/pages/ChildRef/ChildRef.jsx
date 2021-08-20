@@ -8,7 +8,11 @@ const ChildRef = (props) => {
     addCount: (step) => setCount(count + step),
   }));
 
-  return <div>计数器：{count}</div>;
+  return (
+    <div style={{ fontSize: 20 }}>
+      计数器：<span style={{ color: "green" }}>{count}</span>
+    </div>
+  );
 };
 
 export default ChildRef;
