@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Layout } from "antd";
 import Menu from "./Menu";
 import Header from "./Header";
@@ -7,7 +7,7 @@ import Content from "./Content";
 
 export default () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Layout>
         <Menu />
 
@@ -16,6 +16,6 @@ export default () => {
           <Content />
         </Layout>
       </Layout>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
