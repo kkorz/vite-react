@@ -5,11 +5,10 @@ const OptimizeCssPlugin = require("optimize-css-assets-webpack-plugin"); // css�
 
 module.exports = {
   mode: "production",
-  devtool: "hidden-source-map",
   entry: "./src/main.jsx",
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "[name].[contenthash:8].bundle.js",
+    filename: "js/[name].[contenthash:8].bundle.js",
     clean: true, // 在生成文件之前清空 output 目录
   },
   resolve: {
@@ -22,7 +21,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: ["babel-loader"],
+        use: ["babel-loader?cacheDirectory=true"],
         exclude: /node_modules/,
       },
       {
