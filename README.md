@@ -23,6 +23,8 @@ https://kkorz.github.io/vite-react-page/
 ### 代码规范
 :ballot_box_with_check: eslint
 <br />
+:ballot_box_with_check: stylelint
+<br />
 :ballot_box_with_check: prettier
 <br />
 :ballot_box_with_check: husky
