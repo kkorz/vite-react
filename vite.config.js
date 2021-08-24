@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import reactRefresh from "@vitejs/plugin-react-refresh";
-import { themeVariables } from "./src/config/variables";
+import { themeVariables } from "./src/config/theme";
 
 // https://vitejs.dev/config/
 export default defineConfig({

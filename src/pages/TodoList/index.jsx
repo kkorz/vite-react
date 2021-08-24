@@ -1,36 +1,53 @@
 import React, { useState, useMemo } from "react";
-import { Input, Button, Space, Divider } from "antd";
+import { Input, Button, Space, Divider, message } from "antd";
 import { CheckCircleOutlined, DeleteOutlined } from "@ant-design/icons";
+import { useMount } from "@/core/hooks";
+import Service from "./Service";
+import { HTTP_STATUS_CODE } from "@/config/global";
 import styles from "./index.module.less";
 
 const TodoList = () => {
   const [inputVal, setInputVal] = useState("");
   const [list, setList] = useState([]);
 
-  const addTask = () => {
-    if (inputVal) {
-      setList((list) => [
-        ...list,
-        {
-          name: inputVal,
-          done: false,
-          id: Date.now(),
-        },
-      ]);
-      setInputVal("");
+  const getList = async () => {
+    const res = await Service.getTaskList();
+    const { data, status } = res;
+
+    if (status === HTTP_STATUS_CODE.STATUS_OK) {
+      setList(data);
     }
   };
 
-  const onFinishTask = (id) => {
-    const index = list.findIndex((item) => item.id === id);
-    list[index].done = true;
-    setList([...list]);
+  useMount(() => {
+    getList();
+  });
+
+  const addTask = async () => {
+    if (inputVal) {
+      const res = await Service.addTask({ name: inputVal, done: false });
+      if (res.status === HTTP_STATUS_CODE.STATUS_CREATED) {
+        message.success("新增成功");
+        getList();
+        setInputVal("");
+      }
+    }
   };
 
-  const onDeleleTask = (id) => {
-    const index = list.findIndex((item) => item.id === id);
-    list.splice(index, 1);
-    setList([...list]);
+  const onFinishTask = async (id) => {
+    const res = await Service.updateTask({ id, done: true });
+    if (res.status === HTTP_STATUS_CODE.STATUS_OK) {
+      message.success("已完成");
+      getList();
+    }
+  };
+
+  const onDeleleTask = async (id) => {
+    const res = await Service.deleteTask({ id });
+    if (res.status === HTTP_STATUS_CODE.STATUS_OK) {
+      message.success("删除成功");
+      getList();
+    }
   };
 
   const [doneList, undoList] = useMemo(() => {
