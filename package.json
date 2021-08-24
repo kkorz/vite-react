@@ -1,11 +1,11 @@
 {
   "version": "0.0.0",
   "scripts": {
-    "start": "concurrently \"vite\"  \"json-server --watch json_server_mock/db.json --port 3333\"",
+    "start": "concurrently \"vite\"  \"json-server --watch json_server_mock/db.js --port 3333\"",
     "dev": "vite",
     "build": "webpack",
     "serve": "vite preview",
-    "json-server": "json-server --watch json_server_mock/db.json --port 3333",
+    "json-server": "json-server --watch json_server_mock/db.js --port 3333",
     "prepare": "husky install",
     "prettier:write": "prettier src/**/*.{js,jsx,ts,tsx,json,css,less} --write",
     "stylelint:fix": "stylelint src/**/*.{css,less,scss} --fix"
