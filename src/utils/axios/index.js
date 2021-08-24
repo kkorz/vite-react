@@ -1,5 +1,7 @@
 import axios from "axios";
 import CancelRequest from "./CancelRequest";
+import { HTTP_STATUS_CODE } from "@/config/global";
+import { message } from "antd";
 
 // 实例化取消请求对象
 let cancelRequest = new CancelRequest();
@@ -37,6 +39,18 @@ instance.interceptors.response.use(
     cancelRequest.removeRequestKey(err.config || {});
     if (axios.isCancel(err)) {
       console.log("重复请求信息：" + err.message);
+    }
+
+    // 处理错误状态
+    const err_status = err.response?.status;
+    if (err_status === HTTP_STATUS_CODE.STATUS_Unauthorized) {
+      message.error("401：未授权");
+    } else if (err_status === HTTP_STATUS_CODE.STATUS_NOT_FOUND) {
+      message.error("404：资源不存在");
+    } else if (err_status === HTTP_STATUS_CODE.STATUS_Server_Error) {
+      message.error("500：服务器错误");
+    } else {
+      message.error("未知错误");
     }
     return Promise.reject(err);
   },
