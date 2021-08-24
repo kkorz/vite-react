@@ -6,3 +6,4 @@ dist-ssr
 .idea
 .vscode
 yarn-error.log
+json_server_mock

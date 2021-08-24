@@ -9,7 +9,8 @@ https://kkorz.github.io/vite-react-page/
 
 ### 安装使用
 - `yarn` 安装依赖
-- `yarn start` 启动本地开发环境
+- `yarn start` 启动本地开发环境和mock服务
+- `yarn dev` 启动本地开发环境
 - `yarn build` 生产环境打包
 ### 技术栈
 - React
@@ -17,6 +18,7 @@ https://kkorz.github.io/vite-react-page/
 - Vite
 - Webpack
 - Axios
+- JSON Server 
 - Ant Design 
 - Less
 
