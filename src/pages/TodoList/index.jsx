@@ -3,7 +3,6 @@ import { Input, Button, Space, Divider, message } from "antd";
 import { CheckCircleOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useMount } from "@/core/hooks";
 import Service from "./Service";
-import { HTTP_STATUS_CODE } from "@/config/global";
 import styles from "./index.module.less";
 
 const TodoList = () => {
@@ -12,10 +11,13 @@ const TodoList = () => {
 
   const getList = async () => {
     const res = await Service.getTaskList();
-    const { data, status } = res;
+    const {
+      data: { list, total },
+      code,
+    } = res;
 
-    if (status === HTTP_STATUS_CODE.STATUS_OK) {
-      setList(data);
+    if (code === 0) {
+      setList(list);
     }
   };
 
@@ -25,8 +27,8 @@ const TodoList = () => {
 
   const addTask = async () => {
     if (inputVal) {
-      const res = await Service.addTask({ name: inputVal, done: false });
-      if (res.status === HTTP_STATUS_CODE.STATUS_CREATED) {
+      const res = await Service.addTask({ name: inputVal, done: 0 });
+      if (res.code === 0) {
         message.success("新增成功");
         getList();
         setInputVal("");
@@ -35,8 +37,8 @@ const TodoList = () => {
   };
 
   const onFinishTask = async (id) => {
-    const res = await Service.updateTask({ id, done: true });
-    if (res.status === HTTP_STATUS_CODE.STATUS_OK) {
+    const res = await Service.updateTask({ id, done: 1 });
+    if (res.code === 0) {
       message.success("已完成");
       getList();
     }
@@ -44,7 +46,7 @@ const TodoList = () => {
 
   const onDeleleTask = async (id) => {
     const res = await Service.deleteTask({ id });
-    if (res.status === HTTP_STATUS_CODE.STATUS_OK) {
+    if (res.code === 0) {
       message.success("删除成功");
       getList();
     }

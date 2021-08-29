@@ -7,6 +7,12 @@ export default defineConfig({
   server: {
     port: 7777,
     open: true,
+    proxy: {
+      "/api": {
+        target: "http://127.0.0.1:7001",
+        changeOrigin: true,
+      },
+    },
   },
   css: {
     // css module配置

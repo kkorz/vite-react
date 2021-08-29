@@ -8,8 +8,8 @@ let cancelRequest = new CancelRequest();
 
 // 实例化axios对象
 const instance = axios.create({
-  // baseURL: "https://my-json-server.typicode.com/kkorz/vite-react-api",
-  baseURL: "http://localhost:3333",
+  baseURL: "http://47.98.241.220:7001",
+  // baseURL: "http://localhost:7001",
   timeout: 4000,
 });
 
@@ -32,7 +32,7 @@ instance.interceptors.response.use(
   (res) => {
     // 移除成功请求记录
     cancelRequest.removeRequestKey(res.config);
-    return res;
+    return res.data;
   },
   (err) => {
     // 移除失败的请求记录
@@ -56,7 +56,7 @@ instance.interceptors.response.use(
   },
 );
 
-// 封装请求get post delete patch
+// 封装请求get post delete put
 const get = (url, params) => {
   return instance.get(url, { params });
 };
@@ -65,8 +65,8 @@ const post = (url, data) => {
   return instance.post(url, data);
 };
 
-const patch = (url, data) => {
-  return instance.patch(url, data);
+const put = (url, data) => {
+  return instance.put(url, data);
 };
 
 const deleteMethod = (url, params) => {
@@ -76,6 +76,6 @@ const deleteMethod = (url, params) => {
 export default {
   get,
   post,
-  patch,
+  put,
   delete: deleteMethod,
 };
