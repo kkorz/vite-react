@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 打包后抽离 css 文件
 const OptimizeCssPlugin = require("optimize-css-assets-webpack-plugin"); // css压缩
+const { themeVariables } = require("./src/config/theme");
 
 module.exports = {
   mode: "production",
@@ -33,6 +34,7 @@ module.exports = {
             loader: "less-loader",
             options: {
               lessOptions: {
+                modifyVars: themeVariables,
                 javascriptEnabled: true,
               },
             },
