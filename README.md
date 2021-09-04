@@ -9,8 +9,8 @@ http://47.98.241.220/
 
 ### 安装使用
 - `yarn` 安装依赖
-- `yarn start` 启动本地开发环境和mock服务
-- `yarn dev` 启动本地开发环境
+- `yarn start` 启动本地开发环境
+- `yarn mock` 启动本地数据mock服务
 - `yarn build` 生产环境打包
 ### 技术栈
 - React
